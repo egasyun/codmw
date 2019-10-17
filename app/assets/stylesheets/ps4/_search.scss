@@ -1,0 +1,58 @@
+.search{
+  padding: 0px 15px 20px 15px;
+  margin: 0 5px;
+  border-radius: 20px;
+  background-color: rgba(236, 236, 236, 0.8);
+  .age{
+    p{
+      display: inline-block;
+      margin: 0;
+    }
+  }
+  .resetBtn{
+    margin: 0 0 0 10px;
+  }
+
+  @media screen and (max-width: 480px){
+    .title{
+      text-align: center;
+      font-size: 17px;
+      padding: 15px 0 10px 0px;
+      margin: 0;
+    }
+    .form{
+      padding: 0 0 10px 0;
+    }
+    .age{
+      p{
+
+      }
+    }
+    .submitWarpper{
+      text-align: center;
+      padding: 10px 0 0px 0;
+      .submit{
+        font-size: 16px;
+        padding: 4px 18px;
+      }
+      .resetBtn{
+        padding: 4px 8px;
+      }
+    }
+    .searchResult{
+      h3{
+        text-align: center;
+        margin: 10px 0;
+      }
+      p{
+        display: inline-block;
+        margin: 0;
+      }
+      .vc, .age{
+        padding: 0 0 0 20px;
+      }
+    }
+
+  }
+
+}

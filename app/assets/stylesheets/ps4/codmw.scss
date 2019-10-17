@@ -1,0 +1,217 @@
+
+.codmw{
+  background-image: url("back.jpg");
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 15px 0;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  header{
+    width: 100%;
+    margin: 0;
+    background-color: rgba(255,0,0,0);
+    .title{
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      background: rgba(32, 32, 32, 0.9);
+      .a{
+        margin: 0;
+        padding: 8px 0 0 0;
+        color: white;
+      }
+      .b{
+        margin: 0;
+        padding: 8px 0 10px 0;
+        color: white;
+      }
+    }
+  }
+  .explanation{
+    background-color: rgba(236, 236, 236, 0.9);
+    border-radius: 10px;
+    h2{
+      padding: 5px 10px;
+    }
+
+  }
+  .jumpBtnWrapper{
+    text-align: center;
+    padding: 10px 0 30px 0 ;
+  }
+  .jumpBtn{
+    background-color: rgb(255, 93, 42);
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+  .index{
+    margin: 40px 4px;
+
+    table{
+      background-color: rgba(236, 236, 236, 0.9);
+      border: 1px solid #666;
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0;
+    }
+    td{
+      border: 1px solid #666;
+      border-collapse: collapse;
+    }
+
+    p{
+      display: inline-block;
+    }
+    .purpose{
+      p{
+        padding: 2px;
+        border-radius: 4px;
+      }
+      .f{
+        background-color: #fb6542;
+        color: white;
+      }
+      .o{
+        background-color: #ffbb00;
+        color: white;
+      }
+      .c{
+        background-color: #375e97;
+        color: white;
+      }
+    }
+    .skill{
+      p{
+        padding: 2px;
+        border-radius: 4px;
+        margin: 0;
+      }
+    }
+    .psId, .comment{
+      width: 100%;
+    }
+    ul{
+      margin: auto;
+      li{
+        background-color: rgba(236, 236, 236, 0.9);
+        display: inline-block;;
+        padding: 10px 15px;
+        margin: 1px;
+        border-radius: 8px;
+      }
+      .active{
+        background-color: rgb(255, 93, 42);
+        border: none;
+      }
+      .prev, .next{
+        padding: 10px 5px;
+      }
+      a{
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .post{
+    padding: 0 15px;
+    margin: 0 5px;
+    border-radius: 20px;
+    background-color: rgba(236, 236, 236, 0.8);
+  }
+
+
+
+
+@media screen and (max-width: 480px){
+  header{
+    .title{
+      top: 20px;
+    }
+    h1{
+      font-size: 26px;
+    }
+    .sitetitle{
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+  }
+  .explanation{
+    margin: 5px;
+    h2{
+      font-size: 16px;
+    }
+  }
+  .post{
+    .title{
+      font-size: 17px;
+      text-align: center;
+      margin: 0;
+      padding: 15px 0;
+    }
+    .formBox{
+      padding: 0 0 10px 0;
+    }
+    .submitWarpper{
+      text-align: center;
+      padding: 10px 0 15px 0;
+    }
+    .submit{
+      font-size: 15px;
+    }
+    .psIdForm{
+      width: 200px;
+    }
+    .commentForm{
+      width: 80vw;
+      height: 60px;
+    }
+    p{
+      margin: 0;
+    }
+  }
+
+
+  .index{
+    padding: 0 2px;
+
+   .vc, .age,.skill, .purpose{
+      width: 20%;
+      font-size: 15px;
+      text-align: center;
+    }
+    .psId{
+      p{
+        font-size: 14px;
+        padding: 0 0 0 3px;
+        word-wrap: normal;
+        word-break: break-all;
+      }
+    }
+    .comment{
+      width: 80%;
+      padding: 3px;
+      p{
+        word-wrap: normal;
+        word-break: break-all;
+        margin: 0;
+      }
+    }
+    .purpose, .vc, .psId, .age{
+      p{
+        margin: 5px 0;
+      }
+    }
+
+
+  }
+
+
+
+
+}

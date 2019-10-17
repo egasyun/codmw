@@ -1,0 +1,83 @@
+<div class="search">
+  <h3 class="title">検索フォーム</h3>
+  <%= form_tag({:action=>"codmw"},{:method=>"get"})  do %>
+    <div class="purpose form">
+      <%= label_tag "探すタイプ：" %>
+      <%= select_tag :s_purpose, options_for_select([["フレンド", "f"],["対戦相手", "o"],["協力プレイ","c"]]), class: "select" %>
+    </div>
+    <div class="vc form">
+      <%= label_tag "VCの有無：" %>
+      <label><%= radio_button_tag :s_vc, true ,:class => "radioBtn", :checked => false %>あり</label>
+      <label><%= radio_button_tag :s_vc, false ,:class => "radioBtn", :checked => false %>なし</label>
+      <label><%= radio_button_tag :s_vc, 1 ,:class => "radioBtn",:checked => true %>指定なし</label>
+    </div>
+    <div class="skill  form">
+      <%= label_tag "求めるレベル：" %>
+      <%= select_tag :s_skill, options_for_select([["指定なし",6],["★★★のみ", 1],["★★★or★★☆", 2],["★★☆のみ",3],["★★☆or★☆☆",4],["★☆☆のみ",5]]) , class: "select"%>
+    </div>
+    <div class="age form">
+      <%= label_tag "相手の年齢：" %>
+      <%= select_tag :s_lowAge, options_for_select((12..50).to_a), include_blank: true, class: "select" %> <p>歳(下限)〜</p> <%= select_tag :s_highAge, options_for_select((12..50).to_a), include_blank: true, class: "select" %> <p>歳(上限)</p>
+    </div>
+    <div class="submitWarpper">
+      <%= submit_tag("検索", :class => "submit") %>
+      <%=  link_to "検索条件をリセット", ps4s_codmw_path, :class => "resetBtn submit" %>
+    </div>
+  <% end %>
+  <% if @purpose %>
+  <div class="searchResult">
+    <h3>検索条件</h3>
+    <table>
+      <tr>
+        <td>
+        <% if @purpose == "f"%>
+          <p>タイプ：フレンド</p>
+        <% elsif @purpose == "o"%>
+          <p>タイプ：対戦相手</p>
+        <% elsif @purpose =- "c" %>
+          <p>タイプ：協力プレイ</p>
+        <% end %>
+        </td>
+        <td>
+          <% if @vc == "true"%>
+            <p class="vc">VC：あり</p>
+          <% elsif @vc == "false" %>
+            <p class="vc">VC：なし</p>
+          <% else %>
+            <p class="vc">VC：指定なし</p>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <% if @skill == "6"%>
+            <p>レベル：指定なし</p>
+          <% elsif @skill == "1"%>
+            <p>上級者のみ</p>
+          <% elsif @skill == "2"%>
+            <p>上級者・中級者</p>
+          <% elsif @skill == "3"%>
+            <p>中級者のみ</p>
+          <% elsif @skill =- "4"%>
+            <p>中級者・初心者</p>
+          <% elsif @skill == "5"%>
+            <p>初心者のみ</p>
+          <% end %>
+        </td>
+        <td>
+          <% if @lowAge && @highAge %>
+            <p class="age">年齢：<%= @lowAge %>歳〜<%= @highAge %>歳</p>
+          <% elsif @lowAge %>
+            <p class="age">年齢：<%= @lowAge %>歳〜</p>
+          <% elsif @highAge %>
+            <p class="age">年齢：〜<%= @highAge %>歳</p>
+          <% else %>
+            <p class="age">年齢：すべて</p>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <% end %>
+
+</div>

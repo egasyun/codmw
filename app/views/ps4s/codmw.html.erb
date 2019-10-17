@@ -1,0 +1,118 @@
+<head>
+  <title>CoDフレンド募集掲示板</title>
+</head>
+<div class="codmw">
+
+<header>
+    <div class="title">
+      <h1 class="sitetitle a">withFriend!</h1>
+      <h1 class="a">CoD:MW</h1>
+      <h1 class="b">フレンド募集 掲示板</h1>
+    </div>
+</header>
+
+
+<div class="explanation">
+  <h2>コール オブ デューティ モダン・ウォーフェア(Call of Duty: Modern Warfare)の掲示板です。フレンドや対戦相手を探したり、募集したりすることができます。</h2>
+</div>
+
+<div class="jumpBtnWrapper">
+  <a href="#post" class="jumpBtn">募集の投稿をする</a>
+  </div>
+
+<%= render partial: 'search' %>
+
+<div class="index">
+  <% @results.each do |a| %>
+    <table>
+      <tr>
+        <td class="purpose">
+          <% if a.purpose == "f" %>
+            <p class="f">フレンド</p>
+          <% elsif a.purpose == "o" %>
+            <p class="o">対戦相手</p>
+          <% else %>
+            <p class="c">協力プレイ</p>
+          <% end %>
+        </td>
+        <td class="vc">
+          <% if a.vc == true %>
+            <p>VC：あり</p>
+          <% else %>
+            <p>VC：なし</p>
+          <% end %>
+        </td>
+        <td class="psId" colspan="2">
+          <p>PSID：<%= a.psId %></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="skill"  valign="top">
+          <% if a.skill == "senior"%>
+            <p>スキル</p>
+            <p>★★★</p>
+          <% elsif a.skill == "Intermediate"%>
+            <p>スキル</p>
+            <p>★★☆</p>
+          <% else %>
+            <p>スキル</p>
+            <p>★☆☆</p>
+          <% end %>
+        </td>
+        <td class="comment" rowspan="2" colspan="2" valign="top">
+          <p>ひとこと：<%= a.comment %></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="age">
+          <p>年齢：<%= a.age%><p>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+  <%= will_paginate @results, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+</div>
+
+
+<div class="post" id="post">
+  <h3 class="title">投稿フォーム</h3>
+  <%= form_for @ps4, url:ps4s_create_path do |c| %>
+    <div class="psId formBox">
+      <%= c.label "PSID：" %>
+      <%= c.text_field :psId, :class => 'psIdForm select' %>
+    </div>
+    <div class="purpose formBox">
+      <%= c.label "募集タイプ：" %>
+      <%= c.select :purpose, [["フレンド", "f"],["対戦相手", "o"],["協力プレイ","c"]], {}, {class: "select"} %>
+    </div>
+    <div class="vc formBox">
+      <%= c.label "VC：" %>
+      <label><%= c.radio_button :vc, true ,:class => "radioBtn",:checked => true %>あり</label>
+      <label><%= c.radio_button :vc, false ,:class => "radioBtn" %>なし</label>
+    </div>
+    <div class="skill formBox">
+      <%= c.label "プレイスキル：" %>
+      <%= c.select :skill, [["自信アリ（★★★）", "senior"],["中級者（★★☆）", "Intermediate"],["初心者（★☆☆）","beginner"]], {}, {class: "select"} %>
+    </div>
+    <div class="age formBox">
+      <%= c.label "自分の年齢：" %>
+      <%= c.select :age, options_for_select((12..50).to_a), {}, {class: "select"} %>
+    </div>
+    <div class="period formBox">
+      <%= c.label "掲載期間：" %>
+      <%= c.select :period, [["24時間", "day"],["3日間", "3days"],["1週間（おすすめ）","1week"],["2週間","2weeks"],["1ヶ月","1month"]], {}, {class: "select", :selected=>"1週間（おすすめ）"} %>
+    </div>
+    <div class="commentLabel">
+      <%= c.label "ひとこと：", class:"commentLabel" %>
+      <%= c.text_area :comment, class: "commentForm select"%>
+    </div>
+    <p>※異性との出会い目的の書き込みは禁止です。</p>
+    <p>※個人が特定できるような情報は書き込まないようにお願いします。</p>
+    <div class="submitWarpper">
+      <%= c.submit "投稿する",class: "submit" %>
+    </div>
+  <% end %>
+</div>
+
+
+</div>
