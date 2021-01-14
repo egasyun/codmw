@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'will_paginate',           '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 
-gem 'rails_admin', '~> 2.0.0.beta'
+gem 'rails_admin', '~> 2.0.2'
 gem 'sitemap_generator'
 
 group :development do
